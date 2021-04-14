@@ -17,6 +17,7 @@ export const ToDoList = () => {
     const dispatcherRef = React.useRef<Dispatcher>(CreateDispatcher());
     React.useEffect(() => {
       setDispatcher(dispatcherRef.current);
+    // eslint-disable-next-line react-hooks/exhaustive-deps
     }, []);
 
     return (

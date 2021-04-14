@@ -12,8 +12,7 @@ export const CreateDispatcher = () => {
   );
 
   const addItem = useRecoilCallback<[string], void>(
-    ({ set }) => (text: string) => {      
-
+    ({ set }) => (text: string) => {
       const newToDoItem = {
         id: getId(),
         text,
@@ -41,7 +40,7 @@ export const CreateDispatcher = () => {
           foundItem,
         ]);
 
-        logMessage(`ToDo: \"${foundItem.text}\" moved to recycle bin.`);
+        logMessage(`ToDo: "${foundItem.text}" moved to recycle bin.`);
         return removeItemAtIndex(oldTodoList, index);
       });
     }
@@ -61,7 +60,7 @@ export const CreateDispatcher = () => {
           foundItem,
         ]);
 
-        logMessage(`ToDo: \"${foundItem.text}\" restored from recycle bin.`);
+        logMessage(`ToDo: "${foundItem.text}" restored from recycle bin.`);
         return removeItemAtIndex(oldRecycleList, index);
       });
     }

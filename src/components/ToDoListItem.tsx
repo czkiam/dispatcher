@@ -1,4 +1,4 @@
-import * as React from "react";
+import * as React from 'react';
 import { useRecoilState, useRecoilValue } from "recoil";
 import { ToDoItem } from "../types";
 import { todoListState, dispatcherState } from "../atoms";
@@ -37,7 +37,8 @@ export const TodoListItem = (props: Props) => {
     setTodoList(newList);
   };
 
-  const deleteItem = () => {
+  const deleteItem = (e: React.MouseEvent<HTMLButtonElement>): void => {
+    e.preventDefault();
     dispatcher?.deleteItem(index);
   };
 
@@ -49,6 +50,7 @@ export const TodoListItem = (props: Props) => {
         checked={item.isComplete}
         onChange={toggleItemCompletion}
       />
+      {/* <input type="button" value="Add" onClick={deleteItem} /> */}
       <button onClick={deleteItem}>X</button>
     </div>
   );
